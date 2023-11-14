@@ -1,104 +1,243 @@
-//1. Given a number. Print “odd” if the number is odd and “even” if it’s even.
+//1. Given a number print its digits count. Use both loops (for, while)
 
-let number = 123
-if(number % 2 ==0){
-    console.log("The number is even")
+let number = 78756
+let j = 0;
+let i = number;
+for (j = 0; i != 0; i = Math.floor(i / 10)) {
+    j++;
 }
-else{
-    console.log("The number is odd")
+console.log("The number of digits in", number, "is:", j);
+
+
+//1. while
+
+let number = 78756
+let j = 0;
+let i = number
+while (i !== 0) {
+    j++;
+    i = Math.floor(i / 10);
 }
-VM281:5 The number is odd
+console.log(j)
 
 
-let number = 35
-if(number % 2 ==0){
-    console.log("The number is even")
+//1. do...while
+
+let number = 78756
+let j = 0
+let i = number
+do {
+    j++;
+    i = Math.floor(i / 10);
+} while (i !== 0);
+
+console.log(j)
+
+
+//1. switch
+error 
+
+
+
+
+
+//2.Count numbers of digit 9 in a number. Use both loops (for, while)
+
+let number = 129
+let j = 0
+while (number > 0) {
+    let digit = number % 10
+    if (digit === 9) {
+        j++
+    }
+    number = Math.floor(number / 10)
 }
-else{
-    console.log("The number is odd")
-}
-VM443:6 The number is odd
+console.log(j)
 
 
+//2.  for
 
-let number = 70
-if(number % 2 ==0){
-    console.log("The number is even")
-}
-else{
-    console.log("The number is odd")
-}
-VM492:3 The number is even
-
-
-//2. Given two numbers print 1 if one of them is divisible by the other one, otherwise print 0.
-
-const a = 3
-const b = 14
-if(a % b === 0 || b % a === 0 ) {
-    console.log(1)
-} else if(a % b !== 0) {
-    console.log(0)
-}
-VM392:8 0
-
-
-// 18, 2
-const a = 18
-const b = 2
-if(a % b === 0 || b % a === 0 ) {
-    console.log(1)
-} else if(a % b !== 0) {
-    console.log(0)
-}
-VM419:6 1
-
-
-//7, 21
-const a = 7
-const b = 21
-if(a % b === 0 || b % a === 0 ) {
-    console.log(1)
-} else if(a % b !== 0) {
-    console.log(0)
-}
-
-
-//3. Given a positive integer. Bring the last digit of the number to the beginning. Print the new
-number. If the last digit of the inserted number is 0, number remains the same.
-
-function bringLastDigitToBeginning(number) {
-    const lastDigit = number % 10;
-if (lastDigit !== 0) {
-const newNumber = lastDigit * Math.pow(10, Math.floor(Math.log10(number))) + Math.floor(number / 10);
-console.log("The new number is: " + newNumber);
-    } else {
-        console.log("The number remains the same: " + number);
+let n = 129
+let j = 0
+let nString = n + ' '
+for (let i = 0; i < nString.length; i++) {
+    if (nString[i] === '9') {
+        j++; 
     }
 }
 
-bringLastDigitToBeginning(367);
+console.log(j)
 
 
-//4. Given five numbers as input. Calculate and print the average of the numbers(without
-using arrays). (կասկածում եմ, որ այս վարժությունն իմ գրածի նման պրիմիտիվ լուծում է պահանջում )
+//2. do..while
 
-let a = 45, b = - 12, c = 0, d = 3, e = - 15, z, x
-z = a + b + c + d + e 
-x = z / 5
-4.2
+let number = 129
+let j = 0;
+let i = number
+do {
+    let digit = i % 10
+    if (digit === 9) {
+        j++
+    }
+    i = Math.floor(i / 10)
+} while (i > 0)
+
+console.log(j)
 
 
-//5. Given the following code rewrite it using only two if operators. (Hint: use logical
-operators).
+//2.  switch
+error
 
-let n = +prompt();
-let i = 0
-let j = 0
-if ((n % 2 === 0) && (!Math.floor(n / 10))) {
-    console.log(i += 1)
+
+
+
+
+
+//3. Given two numbers. Print ony odd numbers between that numbers.
+
+let num1 = 7
+let num2 = 45
+for (let i = num1; i <= num2; i++) {
+    if (i % 2 !== 0) {
+        console.log(i);
+    }
 }
-if ((n % 3 ===0) && (n % 10 === 1)) {
-    console.log(j += 1)
+
+
+//3. while
+
+let num1 = 7
+let num2 = 45
+let i = num1;
+while (i <= num2) {
+    if (i % 2 !== 0) {
+        console.log(i);
+    }
+    i++;
 }
 
+
+//3. do..while
+
+let num1 = 7;
+let num2 = 45;
+let i = num1;
+do {
+    if (i % 2 !== 0) {
+        console.log(i);
+    }
+    i++;
+} while (i <= num2);
+
+
+//3. switch
+
+let num1 = 7
+let num2 = 45
+let i = num1;
+while (i <= num2) {
+    switch (i % 2) {
+        case 1:
+            console.log(i);
+            break;
+        default:
+            break;
+    }
+    i++;
+}
+
+
+
+//4. Given a number as input, insert dashes (-) between each two even numbers.
+
+let n = 25468
+let nString = n + ' '
+let j = ''
+for (let i = 0; i < nString.length; i++) {
+    if (nString[i] % 2 === 0 && nString[i + 1] % 2 === 0) {
+        j += nString[i] + '-';
+    } else {
+        j += nString[i]
+    }
+}
+console.log(j)
+
+
+//5. Given a positive number. Print it in reverse order.
+
+let number = 1253; 
+let reversedNumber = 0;
+while (number > 0) {
+    reversedNumber = reversedNumber * 10 + (number % 10);
+    number = Math.floor(number / 10);
+}
+console.log(reversedNumber);
+
+
+//5. for
+
+let number = 1253; 
+let reversedNumber = 0;
+for (; number > 0; number = Math.floor(number / 10)) {
+    reversedNumber = reversedNumber * 10 + (number % 10);
+}
+console.log(reversedNumber);
+
+
+// 5. switch
+
+let number = 1253
+let reversedNumber = 0;
+while (number > 0) {
+    let lastDigit = number % 10;
+    switch (lastDigit) {
+        case 0:
+            reversedNumber = reversedNumber * 10 + 0;
+            break;
+        case 1:
+            reversedNumber = reversedNumber * 10 + 1;
+            break;
+        case 2:
+            reversedNumber = reversedNumber * 10 + 2;
+            break;
+        case 3:
+            reversedNumber = reversedNumber * 10 + 3;
+            break;
+        case 4:
+            reversedNumber = reversedNumber * 10 + 4;
+            break;
+        case 5:
+            reversedNumber = reversedNumber * 10 + 5;
+            break;
+        case 6:
+            reversedNumber = reversedNumber * 10 + 6;
+            break;
+        case 7:
+            reversedNumber = reversedNumber * 10 + 7;
+            break;
+        case 8:
+            reversedNumber = reversedNumber * 10 + 8;
+            break;
+        case 9:
+            reversedNumber = reversedNumber * 10 + 9;
+            break;
+        default:
+            break;
+    }
+
+    number = Math.floor(number / 10);
+}
+console.log(reversedNumber)
+
+
+
+//5. do...while
+
+let number = 1253
+let reversedNumber = 0;
+do {
+    let lastDigit = number % 10;
+    reversedNumber = reversedNumber * 10 + lastDigit;
+    number = Math.floor(number / 10);
+} while (number > 0);
+console.log(reversedNumber)
