@@ -1,243 +1,123 @@
-//1. Given a number print its digits count. Use both loops (for, while)
+1. Insert a number. Print “yes” if it contains 3 successive zeros, otherwise print “no”.
 
-let number = 78756
-let j = 0;
-let i = number;
-for (j = 0; i != 0; i = Math.floor(i / 10)) {
-    j++;
-}
-console.log("The number of digits in", number, "is:", j);
-
-
-//1. while
-
-let number = 78756
-let j = 0;
-let i = number
-while (i !== 0) {
-    j++;
-    i = Math.floor(i / 10);
-}
-console.log(j)
-
-
-//1. do...while
-
-let number = 78756
-let j = 0
-let i = number
-do {
-    j++;
-    i = Math.floor(i / 10);
-} while (i !== 0);
-
-console.log(j)
-
-
-//1. switch
-error 
-
-
-
-
-
-//2.Count numbers of digit 9 in a number. Use both loops (for, while)
-
-let number = 129
-let j = 0
-while (number > 0) {
-    let digit = number % 10
-    if (digit === 9) {
-        j++
+function containsThreeSuccessiveZeros(number) {
+  const numString = number + ''
+  
+  for (let i = 0; i < numString.length - 2; i++) {
+    if (numString[i] === '0' && numString[i + 1] === '0' && numString[i + 2] === '0') {
+      return 'yes';
     }
-    number = Math.floor(number / 10)
-}
-console.log(j)
+  }
 
-
-//2.  for
-
-let n = 129
-let j = 0
-let nString = n + ' '
-for (let i = 0; i < nString.length; i++) {
-    if (nString[i] === '9') {
-        j++; 
-    }
-}
-
-console.log(j)
-
-
-//2. do..while
-
-let number = 129
-let j = 0;
-let i = number
-do {
-    let digit = i % 10
-    if (digit === 9) {
-        j++
-    }
-    i = Math.floor(i / 10)
-} while (i > 0)
-
-console.log(j)
-
-
-//2.  switch
-error
-
-
-
-
-
-
-//3. Given two numbers. Print ony odd numbers between that numbers.
-
-let num1 = 7
-let num2 = 45
-for (let i = num1; i <= num2; i++) {
-    if (i % 2 !== 0) {
-        console.log(i);
-    }
-}
-
-
-//3. while
-
-let num1 = 7
-let num2 = 45
-let i = num1;
-while (i <= num2) {
-    if (i % 2 !== 0) {
-        console.log(i);
-    }
-    i++;
-}
-
-
-//3. do..while
-
-let num1 = 7;
-let num2 = 45;
-let i = num1;
-do {
-    if (i % 2 !== 0) {
-        console.log(i);
-    }
-    i++;
-} while (i <= num2);
-
-
-//3. switch
-
-let num1 = 7
-let num2 = 45
-let i = num1;
-while (i <= num2) {
-    switch (i % 2) {
-        case 1:
-            console.log(i);
-            break;
-        default:
-            break;
-    }
-    i++;
+  return 'no'
 }
 
 
 
-//4. Given a number as input, insert dashes (-) between each two even numbers.
 
-let n = 25468
-let nString = n + ' '
-let j = ''
-for (let i = 0; i < nString.length; i++) {
-    if (nString[i] % 2 === 0 && nString[i + 1] % 2 === 0) {
-        j += nString[i] + '-';
+2. Insert a number. Remove all zeros from the number, except the last one and print the
+number. If there are at most one zero, print “Nothing to remove”.
+
+function removeZerosExceptLast(num) {
+  let strNumber = num + ''
+  let count = 0
+  let result = ''
+
+  for (let i = 0; i < strNumber.length; i++) {
+    if (strNumber[i] === '0') {
+      count++;
+      if (count > 1) {
+        result += ''
+      }
     } else {
-        j += nString[i]
+      result += strNumber[i]
     }
+  }
+
+  if (count <= 1) {
+    console.log("Nothing to remove")
+  } else {
+    console.log(+result)
+  }
 }
-console.log(j)
 
 
-//5. Given a positive number. Print it in reverse order.
-
-let number = 1253; 
-let reversedNumber = 0;
-while (number > 0) {
-    reversedNumber = reversedNumber * 10 + (number % 10);
-    number = Math.floor(number / 10);
-}
-console.log(reversedNumber);
 
 
-//5. for
+3. Insert a n positive number. Check number is prime or not. Prime numbers are numbers
+that have only 2 factors: 1 and themselves. For example, the first 5 prime numbers are
+2, 3, 5, 7, and 11.
 
-let number = 1253; 
-let reversedNumber = 0;
-for (; number > 0; number = Math.floor(number / 10)) {
-    reversedNumber = reversedNumber * 10 + (number % 10);
-}
-console.log(reversedNumber);
+function isPrime(n) {
+  if (n <= 1) {
+    return false;
+  }
 
-
-// 5. switch
-
-let number = 1253
-let reversedNumber = 0;
-while (number > 0) {
-    let lastDigit = number % 10;
-    switch (lastDigit) {
-        case 0:
-            reversedNumber = reversedNumber * 10 + 0;
-            break;
-        case 1:
-            reversedNumber = reversedNumber * 10 + 1;
-            break;
-        case 2:
-            reversedNumber = reversedNumber * 10 + 2;
-            break;
-        case 3:
-            reversedNumber = reversedNumber * 10 + 3;
-            break;
-        case 4:
-            reversedNumber = reversedNumber * 10 + 4;
-            break;
-        case 5:
-            reversedNumber = reversedNumber * 10 + 5;
-            break;
-        case 6:
-            reversedNumber = reversedNumber * 10 + 6;
-            break;
-        case 7:
-            reversedNumber = reversedNumber * 10 + 7;
-            break;
-        case 8:
-            reversedNumber = reversedNumber * 10 + 8;
-            break;
-        case 9:
-            reversedNumber = reversedNumber * 10 + 9;
-            break;
-        default:
-            break;
+  for (let i = 2; i <= n / 2; i++) {
+    if (n % i === 0) {
+      return false;
     }
+  }
 
-    number = Math.floor(number / 10);
+  return true;
 }
-console.log(reversedNumber)
+const numToCheck = 5
+if (isPrime(numToCheck)) {
+  console.log(numToCheck + ' is a prime number')
+} else {
+  console.log(numToCheck + ' is not a prime number')
+}
 
 
 
-//5. do...while
 
-let number = 1253
-let reversedNumber = 0;
-do {
-    let lastDigit = number % 10;
-    reversedNumber = reversedNumber * 10 + lastDigit;
-    number = Math.floor(number / 10);
-} while (number > 0);
-console.log(reversedNumber)
+4. Insert a n positive number. Print the n-th prime number.
+
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
+  }
+
+  for (let i = 2; i <= num / 2; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function findNthPrime(n) {
+  let count = 0;
+  let num = 2;
+
+  while (count < n) {
+    if (isPrime(num)) {
+      count++;
+      if (count === n) {
+        console.log(`The ${n}-th prime number is: ${num}`);
+        break;
+      }
+    }
+    num++;
+  }
+}
+
+const n = 5
+findNthPrime(n)
+
+
+
+
+
+
+5. Insert two positive integers n and m between 1 and 10. Compute and print n m .
+
+function computePower(n, m) {
+  const result = n ** m;
+  console.log(`Result : ${n}^${m} = ${result}`);
+}
+const n = 3 
+const m = 4
+
+computePower(n, m)
